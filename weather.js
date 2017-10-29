@@ -1,3 +1,4 @@
+
 let getWeather = function (info) {
   var latitude = info.coords.latitude.toFixed(4)
   var longitude = info.coords.longitude.toFixed(4)
@@ -15,19 +16,23 @@ let convertToJSON = function(response) {
 
 let updateWeather = function(dataFromService) {
   // console.info(dataFromService)
+
   // City name
   city = dataFromService.name;
   let city_div = document.getElementById("get_city");
   city_div.innerHTML = city;
+
   // Temperature
   temperature = dataFromService.main.temp.toFixed(0);
   let temp_div = document.getElementById("get_temp");
   temp_div.innerHTML = "It is " + temperature + " degrees outside"
+
   // Icon
   icon = dataFromService.weather[0].icon
   icon_url = "http://openweathermap.org/img/w/"+icon+".png"
   document.querySelector('.card-img-top').src=icon_url
 
+  // Latitude and longitude in console
   console.log("Latitude: "+dataFromService.coord.lat);
   console.log("Longitude: "+dataFromService.coord.lon);
 }
@@ -42,9 +47,3 @@ link.addEventListener("click", function(event) {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(getWeather);
 });
-
-
-
-// HINT:
-// Weather icon example: http://openweathermap.org/img/w/10d.png
-// The very last part ('10d.png') can change based on the current conditions.
