@@ -39,7 +39,7 @@ let updateWeather = function(dataFromService) {
 
 let displayError = function(error) {
   console.debug(error);
-  // window.alert("Sorry, something went wrong.");
+  window.alert("Sorry, something went wrong.");
 }
 
 let link = document.getElementById("get_forecast")
